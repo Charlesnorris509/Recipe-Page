@@ -1,0 +1,244 @@
+/* Import fonts */
+@font-face {
+  font-family: 'Young Serif';
+  src: url('./assets/fonts/young-serif/YoungSerif-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('./assets/fonts/outfit/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 700;
+}
+
+:root {
+  /* Colors */
+  --white: hsl(0, 0%, 100%);
+  --stone-100: hsl(30, 54%, 90%);
+  --stone-150: hsl(30, 18%, 87%);
+  --stone-600: hsl(30, 10%, 34%);
+  --stone-900: hsl(24, 5%, 18%);
+  --brown-800: hsl(14, 45%, 36%);
+  --rose-800: hsl(332, 51%, 32%);
+  --rose-50: hsl(330, 100%, 98%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--stone-600);
+  background-color: var(--stone-100);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.recipe-card {
+  max-width: 736px;
+  background-color: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.recipe-content {
+  padding: 2.5rem;
+}
+
+h1 {
+  font-family: 'Young Serif', serif;
+  color: var(--stone-900);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.description {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.prep-time {
+  background-color: var(--rose-50);
+  padding: 2rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.prep-time h2 {
+  color: var(--rose-800);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.prep-time-list {
+  list-style: none;
+}
+
+.prep-time-list li {
+  margin-bottom: 0.5rem;
+  color: var(--brown-800);
+}
+
+.prep-time-list li strong {
+  font-weight: 600;
+}
+
+.ingredients {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  font-family: 'Young Serif', serif;
+  color: var(--stone-900);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.ingredients-list {
+  list-style: none;
+  border-bottom: 1px solid var(--stone-150);
+  padding-bottom: 2rem;
+}
+
+.ingredients-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.ingredients-list li::before {
+  content: "•";
+  color: var(--brown-800);
+  position: absolute;
+  left: 0;
+  font-size: 1.2em;
+}
+
+.instructions {
+  margin-bottom: 2rem;
+}
+
+.instructions ol {
+  list-style: none;
+  counter-reset: instructions;
+}
+
+.instructions li {
+  counter-increment: instructions;
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.instructions li::before {
+  content: counter(instructions);
+  color: var(--white);
+  background-color: var(--brown-800);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.instructions li strong {
+  color: var(--stone-900);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.nutrition {
+  background-color: var(--stone-100);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.nutrition h2 {
+  margin-bottom: 1rem;
+}
+
+.nutrition p {
+  color: var(--stone-600);
+  margin-bottom: 1.5rem;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+}
+
+.nutrition-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--stone-150);
+}
+
+.nutrition-item span {
+  display: block;
+}
+
+.nutrition-item .label {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.nutrition-item .value {
+  color: var(--brown-800);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.attribution {
+  margin-top: 2rem;
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--brown-800);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 4rem 2rem;
+  }
+  
+  .recipe-content {
+    padding: 3rem;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  
+  .nutrition-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
